@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>EduAdmin Mobile</title>
+
+  <!-- jQuery Mobile CDN -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <style>
+    /* Minor overrides to keep it clean */
+    .welcome-box {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+    .welcome-box h2 {
+      font-size: 1.5em;
+      margin-bottom: 8px;
+      color: #333;
+    }
+    .welcome-box p {
+      font-size: 0.95em;
+      color: #666;
+      margin-bottom: 28px;
+    }
+    .form-title {
+      text-align: center;
+      padding: 16px 0 4px;
+      font-size: 1.1em;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 1 — Home
+════════════════════════════════════════════════════════════════ -->
+<div data-role="page" id="home">
+
+  <div data-role="header" data-theme="b">
+    <h1>EduAdmin India</h1>
+  </div>
+
+  <div data-role="content">
+    <div class="welcome-box">
+      <h2>Welcome! 🎓</h2>
+      <p>
+        Manage your college assignments, courses and profile
+        all from your mobile device.
+      </p>
+      <!-- Link to page 2 using jQuery Mobile transition -->
+      <a href="#form-page"
+         data-role="button"
+         data-transition="slide"
+         data-theme="b">
+        Go to Form
+      </a>
+    </div>
+
+    <!-- Info listview -->
+    <ul data-role="listview" data-inset="true">
+      <li data-role="list-divider">Quick Info</li>
+      <li><a href="#form-page" data-transition="slide">
+        <h3>Student Registration</h3>
+        <p>Fill in your details to register</p>
+      </a></li>
+      <li>
+        <h3>Total Courses</h3>
+        <p>6 active courses available</p>
+      </li>
+      <li>
+        <h3>Academic Year</h3>
+        <p>2024 – 2025</p>
+      </li>
+    </ul>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h4>© 2025 EduAdmin India</h4>
+  </div>
+
+</div><!-- end #home -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PAGE 2 — Registration Form
+════════════════════════════════════════════════════════════════ -->
+<div data-role="page" id="form-page">
+
+  <div data-role="header" data-theme="b">
+    <!-- Back button auto-added by jQuery Mobile -->
+    <a href="#home" data-rel="back" data-role="button"
+       data-icon="arrow-l">Back</a>
+    <h1>Registration</h1>
+  </div>
+
+  <div data-role="content">
+    <p class="form-title">Fill in your details below</p>
+
+    <form id="regForm">
+
+      <!-- Name -->
+      <div data-role="fieldcontain">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name"
+               placeholder="e.g. Rahul Sharma"/>
+      </div>
+
+      <!-- Email -->
+      <div data-role="fieldcontain">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email"
+               placeholder="rahul@gmail.com"/>
+      </div>
+
+      <!-- Gender dropdown -->
+      <div data-role="fieldcontain">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+          <option value="">-- Select Gender --</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+          <option value="prefer-not">Prefer not to say</option>
+        </select>
+      </div>
+
+      <!-- Course dropdown -->
+      <div data-role="fieldcontain">
+        <label for="course">Course:</label>
+        <select id="course" name="course">
+          <option value="">-- Select Course --</option>
+          <option value="cse">B.Tech Computer Science &amp; Engineering</option>
+          <option value="ece">B.Tech Electronics &amp; Communication</option>
+          <option value="mech">B.Tech Mechanical Engineering</option>
+          <option value="civil">B.Tech Civil Engineering</option>
+          <option value="mba">MBA</option>
+          <option value="msc">B.Sc Mathematics &amp; Computing</option>
+        </select>
+      </div>
+
+      <!-- Submit -->
+      <a href="#" id="submitBtn"
+         data-role="button"
+         data-theme="b"
+         data-icon="check"
+         data-iconpos="right">
+        Submit
+      </a>
+
+    </form>
+  </div>
+
+  <!-- ── Success Popup ──────────────────────────────────────────── -->
+  <div data-role="popup" id="successPopup"
+       data-overlay-theme="b"
+       data-theme="a"
+       data-dismissible="false"
+       style="max-width:280px; padding:20px; text-align:center;">
+
+    <h3 style="margin-top:0; color:#276749;">✅ Success!</h3>
+    <p id="popupMsg" style="font-size:0.95em; color:#333;">
+      Form submitted successfully!
+    </p>
+    <a href="#" data-role="button" data-rel="back"
+       data-theme="b" id="closePopup">OK</a>
+  </div>
+
+  <div data-role="footer" data-position="fixed">
+    <h4>© 2025 EduAdmin India</h4>
+  </div>
+
+</div><!-- end #form-page -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     JavaScript
+════════════════════════════════════════════════════════════════ -->
+<script>
+$(document).on('click', '#submitBtn', function (e) {
+  e.preventDefault();
+
+  var name   = $.trim($('#name').val());
+  var email  = $.trim($('#email').val());
+  var gender = $('#gender').val();
+  var course = $('#course').val();
+
+  // Basic validation
+  if (!name || !email || !gender || !course) {
+    $('#popupMsg').text('Please fill in all fields before submitting.');
+    $('#successPopup')
+      .popup('open', { positionTo: 'window', transition: 'pop' });
+    return;
+  }
+
+  // Show success message with user's name
+  $('#popupMsg').html(
+    '<strong>' + name + '</strong>, your registration was submitted successfully! ✅'
+  );
+  $('#successPopup')
+    .popup('open', { positionTo: 'window', transition: 'pop' });
+
+  // Reset form after OK is clicked
+  $('#closePopup').one('click', function () {
+    $('#regForm')[0].reset();
+    // Refresh jQuery Mobile select widgets
+    $('#gender, #course').selectmenu('refresh', true);
+  });
+});
+</script>
+
+</body>
+</html>
