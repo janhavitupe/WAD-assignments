@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – EduAdmin India</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand"><span class="icon">🎓</span> Edu<span class="accent">Admin</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+  </nav>
+
+  <section class="page-hero">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you. Reach out anytime.</p>
+  </section>
+
+  <section class="contact-section">
+    <!-- Info -->
+    <div class="contact-info">
+      <div class="info-item">📍 <span>Survey No. 12, Baner Road, Pune – 411045, Maharashtra</span></div>
+      <div class="info-item">📞 <span>+91 98765 43210</span></div>
+      <div class="info-item">✉️ <span>info@eduadmin.in</span></div>
+      <div class="info-item">🕘 <span>Mon – Sat: 9:00 AM – 5:00 PM IST</span></div>
+    </div>
+
+    <!-- Form -->
+    <form class="contact-form" onsubmit="submitContact(event)">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="cName" placeholder="Rahul Sharma" required/>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="cEmail" placeholder="rahul@gmail.com" required/>
+      </div>
+      <div class="form-group">
+        <label>Mobile</label>
+        <input type="tel" id="cPhone" placeholder="+91 XXXXX XXXXX" pattern="[6-9][0-9]{9}"/>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea id="cMsg" rows="4" placeholder="Your message..." required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
+      <div id="formSuccess" class="success-msg" style="display:none">
+        ✅ Message sent! We'll get back to you within 24 hours.
+      </div>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 EduAdmin India. All rights reserved.</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+/* ── Global ─────────────────────────────────────────────────────── */
+body { background: #f0f2f5; font-family: 'Segoe UI', sans-serif; margin: 0; }
+
+/* ── Navbar ─────────────────────────────────────────────────────── */
+.navbar-edu {
+  background: #1e2a3a;
+  padding: 12px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-edu .brand {
+  color: #fff; font-weight: 700; font-size: 1.15rem;
+  text-decoration: none;
+}
+.navbar-edu .brand span { color: #4e9af1; }
+.navbar-edu .nav-links a {
+  color: #a0aec0; text-decoration: none;
+  font-size: 0.9rem; margin-left: 22px;
+  transition: color .2s;
+}
+.navbar-edu .nav-links a:hover,
+.navbar-edu .nav-links a.active { color: #fff; }
+.navbar-edu .nav-links a.logout { color: #fc8181; }
+
+/* ── Auth Card ──────────────────────────────────────────────────── */
+.auth-card {
+  max-width: 460px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 38px 36px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+}
+.auth-card h2 {
+  font-size: 1.4rem; font-weight: 700;
+  color: #1e2a3a; margin-bottom: 4px;
+}
+.auth-card .sub {
+  color: #718096; font-size: 0.86rem; margin-bottom: 24px;
+}
+.auth-card label {
+  font-size: 0.83rem; font-weight: 600; color: #2d3748;
+}
+.auth-card .form-control,
+.auth-card .form-select {
+  border-radius: 8px;
+  border: 1.5px solid #e2e8f0;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  transition: border .2s, box-shadow .2s;
+}
+.auth-card .form-control:focus,
+.auth-card .form-select:focus {
+  border-color: #4e9af1;
+  box-shadow: 0 0 0 3px rgba(78,154,241,0.15);
+  outline: none;
+}
+.err-msg { font-size: 0.78rem; color: #e53e3e; margin-top: 3px; }
+
+/* ── Primary Button ─────────────────────────────────────────────── */
+.btn-edu {
+  background: #4e9af1; color: #fff; border: none;
+  border-radius: 8px; padding: 11px 20px;
+  font-size: 0.95rem; font-weight: 600;
+  width: 100%; cursor: pointer;
+  transition: background .2s;
+}
+.btn-edu:hover:not(:disabled) { background: #2f7de0; }
+.btn-edu:disabled { background: #a0c4f1; cursor: not-allowed; }
+.btn-edu.danger { background: #e53e3e; }
+.btn-edu.danger:hover:not(:disabled) { background: #c53030; }
+
+/* ── Alert ──────────────────────────────────────────────────────── */
+.alert-edu {
+  border-radius: 8px; padding: 10px 16px;
+  font-size: 0.86rem; margin-top: 14px;
+}
+
+/* ── Profile Card ───────────────────────────────────────────────── */
+.profile-card {
+  max-width: 580px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 38px 36px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+}
+.profile-avatar {
+  width: 76px; height: 76px; border-radius: 50%;
+  background: #4e9af1; color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; font-weight: 700; margin-bottom: 14px;
+}
+.profile-name { font-size: 1.3rem; font-weight: 700; color: #1e2a3a; }
+.profile-email { color: #718096; font-size: 0.87rem; margin-bottom: 18px; }
+.badge-role {
+  display: inline-block;
+  padding: 4px 14px; border-radius: 20px;
+  font-size: 0.78rem; font-weight: 600; margin-bottom: 20px;
+}
+.info-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  margin-bottom: 20px;
+}
+.info-box {
+  background: #f7f9fc; border-radius: 8px; padding: 12px 16px;
+}
+.info-box .lbl {
+  font-size: 0.73rem; color: #718096;
+  font-weight: 600; text-transform: uppercase;
+  letter-spacing: .4px; margin-bottom: 3px;
+}
+.info-box .val { font-size: 0.92rem; color: #1e2a3a; font-weight: 500; }
+
+/* ── Footer link ────────────────────────────────────────────────── */
+.foot-link { font-size: 0.86rem; text-align: center; margin-top: 16px; }
+.foot-link a { color: #4e9af1; text-decoration: none; }
+.foot-link a:hover { text-decoration: underline; }
