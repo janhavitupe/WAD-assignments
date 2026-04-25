@@ -1,0 +1,40 @@
+### Assignment CRUD API – Test Requests
+### Use with VS Code REST Client extension or import into Postman
+
+@base = http://localhost:5000/api/assignments
+
+### ── 1. CREATE Assignment (POST) ────────────────────────────────
+POST {{base}}
+Content-Type: application/json
+
+{
+  "title": "Data Structures Lab Report",
+  "description": "Implement Stack and Queue using linked list in C++",
+  "subject": "Data Structures & Algorithms",
+  "studentName": "Rahul Sharma",
+  "department": "Computer Science & Engineering",
+  "dueDate": "2025-05-15",
+  "status": "Pending"
+}
+
+### ── 2. READ ALL Assignments (GET) ──────────────────────────────
+GET {{base}}
+
+### ── 2a. READ with filters ──────────────────────────────────────
+GET {{base}}?status=Pending&department=Computer Science %26 Engineering
+
+### ── 3. READ ONE Assignment by ID (GET) ─────────────────────────
+# Replace <id> with actual MongoDB _id from create response
+GET {{base}}/<id>
+
+### ── 4. UPDATE Assignment (PUT) ─────────────────────────────────
+PUT {{base}}/<id>
+Content-Type: application/json
+
+{
+  "status": "Submitted",
+  "marks": 88
+}
+
+### ── 5. DELETE Assignment (DELETE) ──────────────────────────────
+DELETE {{base}}/<id>
